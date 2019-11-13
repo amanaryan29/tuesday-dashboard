@@ -1,39 +1,18 @@
 <template>
-  <div class="container">
+  <div class="bg-gray-900">
+    <div class="container w-1/2 pl-2 md:pl-0 text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold items-center">Comments DashBoard</div>
     <div>
-      <logo />
-      <h1 class="title">
-        comments-dashboard
-      </h1>
-      <h2 class="subtitle">
-        Dashboard for all comments stats.
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <Home />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Home from '@/components/Home'
 
 export default {
   components: {
-    Logo
+    Home
   }
 }
 </script>
@@ -44,18 +23,10 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
