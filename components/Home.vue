@@ -1,5 +1,8 @@
 <template>
-  <div class="container w-full mx-auto pt-20">
+  <div class="container w-full mx-auto pt-8">
+    <div>
+      <Datepicker />
+    </div>
     <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 xl:w-1/3 p-3">
@@ -96,3 +99,13 @@
     </div>
   </div>
 </template>
+
+<script>
+import Datepicker from '@/components/Datepicker'
+
+export default {
+  components: {
+    Datepicker
+  }
+}
+</script>
