@@ -97,15 +97,20 @@
         </div>
       </div>
     </div>
+    <div>
+      <Table />
+    </div>
   </div>
 </template>
 
 <script>
 import Datepicker from '@/components/Datepicker'
+import Table from '@/components/Table'
 
 export default {
   components: {
-    Datepicker
+    Datepicker,
+    Table
   }
 }
 </script>
