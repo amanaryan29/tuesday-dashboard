@@ -51,6 +51,10 @@ export default {
   */
   axios: {
   },
+
+  server: {
+    port: 8000, // default: 3000
+  },
   /*
   ** Build configuration
   */
