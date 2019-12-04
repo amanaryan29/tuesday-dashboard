@@ -14,7 +14,7 @@
                 >Total Comments
                 </h5>
                 <h3 class="font-bold text-3xl text-gray-600">
-                  3249
+                  {{ comments.total }}
                 </h3>
               </div>
             </div>
@@ -29,7 +29,7 @@
                 >Total Accepted Comments
                 </h5>
                 <h3 class="font-bold text-3xl text-gray-600">
-                  332
+                  {{ comments.approved }}
                 </h3>
               </div>
             </div>
@@ -44,7 +44,7 @@
                 >Total Rejected Comments
                 </h5>
                 <h3 class="font-bold text-3xl text-gray-600">
-                  3249
+                  {{ comments.rejected }}
                 </h3>
               </div>
             </div>
@@ -59,7 +59,7 @@
                 >Active Articles
                 </h5>
                 <h3 class="font-bold text-3xl text-gray-600">
-                  3249
+                  345
                 </h3>
               </div>
             </div>
@@ -111,6 +111,27 @@ export default {
   components: {
     Datepicker,
     Table
+  },
+  data () {
+    return {
+      comments: {
+        total: null,
+        approved: null,
+        rejected: null
+      }
+    }
+  },
+  mounted () {
+    this.fetchAndSetData()
+  },
+  methods: {
+    async fetchAndSetData () {
+      const comments = await this.$axios.$get('/total_comments_count')
+      this.comments.total = comments.total
+      this.comments.approved = comments.approved
+      this.comments.rejected = comments.rejected
+    }
   }
+
 }
 </script>
