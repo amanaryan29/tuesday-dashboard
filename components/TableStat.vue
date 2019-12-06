@@ -32,14 +32,14 @@ export default {
   data () {
     return {
       month: {
-        total: null,
-        approved: null,
-        rejected: null
+        total: [],
+        approved: [],
+        rejected: []
       },
       week: {
-        total: null,
-        approved: null,
-        rejected: null
+        total: [],
+        approved: [],
+        rejected: []
       }
     }
   },
@@ -49,14 +49,16 @@ export default {
   methods: {
     async fetchAndSetData () {
       const month = await this.$axios.$get('/get_stats')
-      this.month.total = month.total
-      this.month.approved = month.approved
-      this.month.rejected = month.rejected
+      const currMonth = month.monthly_comments_count
+      this.month.total = currMonth[currMonth.length-1][3]
+      this.month.approved = currMonth[currMonth.length-1][1]
+      this.month.rejected = currMonth[currMonth.length-1][2]
 
       const week = await this.$axios.$get('/get_stats')
-      this.week.total = week.total
-      this.week.approved = week.approved
-      this.week.rejected = week.rejected
+      const currWeek = week.weekly_comments_count
+      this.week.total = currWeek[currWeek.length-1][3]
+      this.week.approved = currWeek[currWeek.length-1][1]
+      this.week.rejected = currWeek[currWeek.length-1][2]
     }
   }
 }
