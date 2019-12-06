@@ -50,7 +50,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://localhost:3004'
+    baseURL: 'http://127.0.0.1:5000'
   },
 
   server: {
