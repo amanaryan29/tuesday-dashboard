@@ -5,7 +5,7 @@
     >{{ commentsToday.total }}
     </h5>
     <h3 class="font-bold uppercase text-sm text-gray-400 text-center">
-      Today'Comments
+      Today's Comments
     </h3>
     <h5
       class="font-bold uppercase text-sm text-gray-400 text-center"
