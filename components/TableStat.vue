@@ -1,10 +1,10 @@
 <template>
-  <table class="table-auto">
+  <table class="table-auto mx-auto container">
     <thead>
       <tr>
-        <th class="w-1/2 px-4 py-2"></th>
-        <th class="w-1/2 px-4 py-2 text-gray-400 text-center uppercase">Current Week</th>
-        <th class="w-1/2 px-4 py-2 text-gray-400 text-center uppercase">Current month</th>
+        <th class="px-4 py-2"></th>
+        <th class="px-4 py-2 text-gray-400 text-center uppercase">Current Week</th>
+        <th class="px-4 py-2 text-gray-400 text-center uppercase">Current month</th>
       </tr>
     </thead>
     <tbody>
