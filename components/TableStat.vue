@@ -10,18 +10,18 @@
     <tbody>
       <tr>
         <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Total</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ week.total }}</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ month.total }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.total }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.total }}</td>
       </tr>
       <tr>
         <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Accepted</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ week.approved }}</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ month.approved }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.approved }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.approved }}</td>
       </tr>
       <tr>
         <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Rejected</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ week.rejected }}</td>
-        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ month.rejected }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.rejected }}</td>
+        <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.rejected }}</td>
       </tr>
     </tbody>
   </table>
@@ -31,15 +31,15 @@
 export default {
   data () {
     return {
-      month: {
-        total: [],
+      currentMonth: {
         approved: [],
-        rejected: []
+        rejected: [],
+        total: []
       },
-      week: {
-        total: [],
+      currentWeek: {
         approved: [],
-        rejected: []
+        rejected: [],
+        total: []
       }
     }
   },
@@ -48,17 +48,15 @@ export default {
   },
   methods: {
     async fetchAndSetData () {
-      const month = await this.$axios.$get('/get_stats')
-      const currMonth = month.monthly_comments_count
-      this.month.total = currMonth[currMonth.length-1][3]
-      this.month.approved = currMonth[currMonth.length-1][1]
-      this.month.rejected = currMonth[currMonth.length-1][2]
+      const currentMonth = await this.$axios.$get('/monthly_comments_count')
+      this.currentMonth.approved = currentMonth[currentMonth.length - 1][1]
+      this.currentMonth.rejected = currentMonth[currentMonth.length - 1][2]
+      this.currentMonth.total = currentMonth[currentMonth.length - 1][3]
 
-      const week = await this.$axios.$get('/get_stats')
-      const currWeek = week.weekly_comments_count
-      this.week.total = currWeek[currWeek.length-1][3]
-      this.week.approved = currWeek[currWeek.length-1][1]
-      this.week.rejected = currWeek[currWeek.length-1][2]
+      const currentWeek = await this.$axios.$get('/weekly_comments_count')
+      this.currentWeek.approved = currentWeek[currentWeek.length - 1][1]
+      this.currentWeek.rejected = currentWeek[currentWeek.length - 1][2]
+      this.currentWeek.total = currentWeek[currentWeek.length - 1][3]
     }
   }
 }
