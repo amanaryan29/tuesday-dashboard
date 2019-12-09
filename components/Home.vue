@@ -15,8 +15,8 @@
       </div>
     </div>
     <div class="w-full sm:w-1/2 p-3">
-      <div class="bar-chart bg-gray-900 border border-gray-800 rounded shadow p-2">
-         <LineChart v-if="loadChart" :data="lineChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
+      <div class="bar-chart bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
+        <LineChart v-if="loadLineChart" :data="lineChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
   },
   data () {
     return {
-      loadChart: false,
+      loadLineChart: false,
       lineChartData: {
         labels: ['week-1', 'week-2', 'last-week', 'current-week'],
         datasets: [
@@ -51,12 +51,11 @@ export default {
           },
           {
             label: 'Total',
-            borderColor: 'yellow',
+            borderColor: '#FFA801',
             data: []
           }
         ]
-      },
-      show: false
+      }
     }
   },
   mounted () {
@@ -66,13 +65,11 @@ export default {
   methods: {
     async fetchAndSetData () {
       const weekly = await this.$axios.$get('/weekly_comments_count')
-
-      console.log('this', this)
       for (let i = 4; i > 0; i--) {
         this.lineChartData.datasets[0].data.push(weekly[weekly.length - i][1])
         this.lineChartData.datasets[1].data.push(weekly[weekly.length - i][2])
         this.lineChartData.datasets[2].data.push(weekly[weekly.length - i][3])
-        this.loadChart = true
+        this.loadLineChart = true
       }
     }
   }
