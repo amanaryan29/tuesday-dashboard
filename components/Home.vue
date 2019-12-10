@@ -25,7 +25,7 @@
 <script>
 import CardStat from '@/components/CardStat'
 import TableStat from '@/components/TableStat'
-import LineChart from '~/components/line-Chart'
+import LineChart from '@/components/helpers/line-chart'
 
 export default {
   components: {

@@ -2,7 +2,7 @@
   <div class="flex-1 text-left">
     <h5
       class="font-bold text-3xl text-gray-600 text-center"
-    >{{ commentsToday.approved }}
+    >{{ commentsToday.total }}
     </h5>
     <h3 class="font-bold uppercase text-sm text-gray-400 text-center p-2 mb-3">
       Today's Comments
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import PieChart from '~/components/pie-Chart'
+import PieChart from '@/components/helpers/pie-chart'
 
 export default {
   components: {
@@ -71,7 +71,7 @@ export default {
       this.assets.open = assets.count
 
       const commentsToday = await this.$axios.$get('/total_comments_today')
-      this.commentsToday.total = commentsToday.approved
+      this.commentsToday.total = commentsToday.total
       const commentsPending = await this.$axios.$get('/pending_comments_by_asset')
       this.commentsPending.total = commentsPending.total_pending
     }
