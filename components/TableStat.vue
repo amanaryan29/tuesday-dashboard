@@ -3,23 +3,23 @@
     <thead>
       <tr>
         <th class="px-4 py-2"></th>
-        <th class="px-4 py-2 text-gray-400 text-center uppercase">Current Week</th>
-        <th class="px-4 py-2 text-gray-400 text-center uppercase">Current month</th>
+        <th class="px-4 py-2 text-gray-400 text-center text-sm uppercase">Current Week</th>
+        <th class="px-4 py-2 text-gray-400 text-center text-sm uppercase">Current month</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Total</td>
+        <td class="border px-4 py-2 font-bold text-gray-400 text-sm text-center uppercase">Total</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.total }}</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.total }}</td>
       </tr>
       <tr>
-        <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Accepted</td>
+        <td class="border px-4 py-2 font-bold text-gray-400 text-sm text-center uppercase">Approved</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.approved }}</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.approved }}</td>
       </tr>
       <tr>
-        <td class="border px-4 py-2 font-bold text-gray-400 text-center uppercase">Rejected</td>
+        <td class="border px-4 py-2 font-bold text-gray-400 text-sm text-center uppercase">Rejected</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentWeek.rejected }}</td>
         <td class="border px-4 py-2 font-bold text-lg text-gray-600">{{ currentMonth.rejected }}</td>
       </tr>
