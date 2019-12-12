@@ -1,13 +1,13 @@
 <template>
-  <div class="flex">
-    <div class="w-full sm:w-1/2 p-3">
+  <div class="md:flex">
+    <div class="mx-auto container w-full sm:w-1/2 p-3">
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <div class="flex flex-row items-center">
           <CardStat />
         </div>
       </div>
     </div>
-    <div class="w-full sm:w-1/2 p-3">
+    <div class="w-full mx-auto container sm:w-1/2 p-3">
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <LineChart v-if="loadLineChart" :data="lineChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
       </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { api } from '@/components/helpers/api'
 import CardStat from '@/components/CardStat'
 import TableStat from '@/components/TableStat'
 import LineChart from '@/components/helpers/line-chart'
@@ -64,7 +65,7 @@ export default {
   },
   methods: {
     async fetchAndSetData () {
-      const weekly = await this.$axios.$get('/weekly_comments_count')
+      const weekly = await api.get('/comments/count/weekly/lastnweeks/4')
       for (let i = 4; i > 0; i--) {
         this.lineChartData.datasets[0].data.push(weekly[weekly.length - i][1])
         this.lineChartData.datasets[1].data.push(weekly[weekly.length - i][2])
