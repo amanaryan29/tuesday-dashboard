@@ -7,7 +7,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full sm:w-1/2 p-3">
+    <div class="w-full mx-auto container sm:w-1/2 p-3">
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <LineChart v-if="loadLineChart" :data="lineChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
       </div>
