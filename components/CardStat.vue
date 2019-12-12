@@ -114,7 +114,6 @@ export default {
       this.commentsToday.rejected = commentsToday.rejected
       this.commentsToday.total = commentsToday.total
       const commentsPending = await api.get('/comments/pending')
-      console.log('pend', commentsPending)
       this.commentsPending.total = commentsPending.total_pending
     }
   }
