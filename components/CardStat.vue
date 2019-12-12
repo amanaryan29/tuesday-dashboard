@@ -1,7 +1,7 @@
 <template>
   <div class="flex-1 text-left mx-auto container">
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-2">
-      <PieChart  />
+      <PieChart />
       <h3 class="font-bold uppercase text-sm text-gray-400 text-center p-1 mb-1">
         Total Comments so far
       </h3>
