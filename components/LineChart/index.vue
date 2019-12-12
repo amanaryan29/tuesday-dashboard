@@ -12,7 +12,7 @@
 
 <script>
 import { api } from '@/components/helpers/api'
-import LineChart from '@/components/lineChart'
+import LineChart from '@/components/LineChart/line-chart'
 
 export default {
   name: 'LineChartFinal',

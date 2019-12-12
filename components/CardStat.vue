@@ -1,7 +1,7 @@
 <template>
   <div class="flex-1 text-left mx-auto container">
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-2">
-      <PieChart v-if="loadPieChart" :data="pieChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:250px" />
+      <PieChart  />
       <h3 class="font-bold uppercase text-sm text-gray-400 text-center p-1 mb-1">
         Total Comments so far
       </h3>
@@ -61,7 +61,7 @@
 
 <script>
 import { api } from '@/components/helpers/api'
-import PieChart from '@/components/helpers/pie-chart'
+import PieChart from '@/components/PieChart/index'
 
 export default {
   components: {
@@ -79,19 +79,6 @@ export default {
       },
       commentsPending: {
         total: null
-      },
-      loadPieChart: false,
-      pieChartData: {
-        labels: ['Approved', 'Rejected', 'Total'],
-        datasets: [
-          {
-            hoverBackgroundColor: ['#B8E994', '#FF5E57', '#FFC048'],
-            hoverBorderWidth: 5,
-            label: 'Total Comments so far',
-            backgroundColor: ['#78E08F', '#FF3F34', '#FFA801'],
-            data: []
-          }
-        ]
       }
     }
   },
@@ -100,12 +87,6 @@ export default {
   },
   methods: {
     async fetchAndSetData () {
-      const totalComments = await api.get('/comments/count/total')
-      this.pieChartData.datasets[0].data.push(totalComments.approved)
-      this.pieChartData.datasets[0].data.push(totalComments.rejected)
-      this.pieChartData.datasets[0].data.push(totalComments.total)
-      this.loadPieChart = true
-
       const assets = await api.get('/assets/open')
       this.assets.open = assets.count
 
