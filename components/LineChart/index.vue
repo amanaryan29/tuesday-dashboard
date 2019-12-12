@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { api } from '@/components/helpers/api'
+import { api } from '@/api'
 import LineChart from '@/components/LineChart/line-chart'
 
 export default {

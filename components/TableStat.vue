@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { api } from '@/components/helpers/api'
+import { api } from '@/api'
 
 export default {
   data () {

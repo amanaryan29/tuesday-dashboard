@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { api } from '@/components/helpers/api'
+import { api } from '@/api'
 import pieChart from '@/components/PieChart/pie-chart'
 
 export default {

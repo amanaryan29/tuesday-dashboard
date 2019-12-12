@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { api } from '@/components/helpers/api'
+import { api } from '@/api'
 import PieChart from '@/components/PieChart/index'
 
 export default {
