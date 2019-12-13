@@ -3,7 +3,9 @@
     <div class="bg-gray-900 shadow">
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between py-4">
-          <div class="mx-auto uppercase text-gray-100 text-base xl:text-2xl no-underline hover:no-underline font-bold">Comments DashBoard</div>
+          <div class="mx-auto uppercase text-gray-100 text-base xl:text-2xl no-underline hover:no-underline font-bold">
+            Comments DashBoard
+          </div>
         </div>
       </div>
     </div>
@@ -23,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .bg-black-alt  {
     background:#191919;
   }

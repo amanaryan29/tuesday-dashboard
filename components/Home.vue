@@ -3,14 +3,17 @@
     <div class="mx-auto container w-full sm:w-1/2 p-3">
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <div class="flex flex-row items-center">
-          <CardStat />
+          <TodayStat />
+        </div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
+        <div class="flex flex-row items-center">
+          <TotalStat />
         </div>
       </div>
     </div>
     <div class="w-full mx-auto container sm:w-1/2 p-3">
-      <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
-        <LineChart v-if="loadLineChart" :data="lineChartData" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
-      </div>
+      <LineChart />
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <div class="flex flex-row items-center">
           <div class="flex-1 text-right md:text-center">
@@ -23,56 +26,18 @@
 </template>
 
 <script>
-import { api } from '@/components/helpers/api'
-import CardStat from '@/components/CardStat'
+import TodayStat from '@/components/TodayStat'
+import TotalStat from '@/components/TotalStat'
+import LineChart from '@/components/LineChart/index'
 import TableStat from '@/components/TableStat'
-import LineChart from '@/components/helpers/line-chart'
 
 export default {
+  name: 'Home',
   components: {
-    CardStat,
-    TableStat,
-    LineChart
-  },
-  data () {
-    return {
-      loadLineChart: false,
-      lineChartData: {
-        labels: ['week-1', 'week-2', 'last-week', 'current-week'],
-        datasets: [
-          {
-            label: 'Approved',
-            borderColor: '#41b883',
-            data: []
-          },
-          {
-            label: 'Rejected',
-            borderColor: 'red',
-            data: []
-          },
-          {
-            label: 'Total',
-            borderColor: '#FFA801',
-            data: []
-          }
-        ]
-      }
-    }
-  },
-  mounted () {
-    this.show = false
-    this.fetchAndSetData()
-  },
-  methods: {
-    async fetchAndSetData () {
-      const weekly = await api.get('/comments/count/weekly/lastnweeks/4')
-      for (let i = 4; i > 0; i--) {
-        this.lineChartData.datasets[0].data.push(weekly[weekly.length - i][1])
-        this.lineChartData.datasets[1].data.push(weekly[weekly.length - i][2])
-        this.lineChartData.datasets[2].data.push(weekly[weekly.length - i][3])
-        this.loadLineChart = true
-      }
-    }
+    TodayStat,
+    TotalStat,
+    LineChart,
+    TableStat
   }
 }
 </script>
