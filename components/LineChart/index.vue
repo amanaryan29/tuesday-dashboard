@@ -6,7 +6,7 @@
     <div v-else-if="lineChart.isError">
       Error in fetching the data
     </div>
-    <LineChart v-else :data="lineChart.data" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
+    <LineChart v-else :height="300" :data="lineChart.data" :options="{ maintainAspectRatio: false, responsive: true }" />
   </div>
 </template>
 

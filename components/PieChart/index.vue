@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
+  <div class="bg-gray-900 p-2 mb-3">
     <div v-if="pieChart.isLoading">
       Loading ...
     </div>
     <div v-else-if="pieChart.isError">
       Error in fetching the data
     </div>
-    <pieChart v-else :data="pieChart.data" :options="{ maintainAspectRatio: false, responsive: true }" styles="height:300px" />
+    <pieChart v-else :height="250" :data="pieChart.data" :options="{ maintainAspectRatio: false, responsive: true }" />
   </div>
 </template>
 
