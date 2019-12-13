@@ -1,9 +1,9 @@
 <template>
   <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
-    <div v-if="lineChart.isLoading">
+    <div v-if="lineChart.isLoading" class="text-gray-400 text-sm uppercase">
       Loading ...
     </div>
-    <div v-else-if="lineChart.isError">
+    <div v-else-if="lineChart.isError" class="text-gray-400 text-sm uppercase">
       Error in fetching the data
     </div>
     <LineChart v-else :height="300" :data="lineChart.data" :options="{ maintainAspectRatio: false, responsive: true }" />

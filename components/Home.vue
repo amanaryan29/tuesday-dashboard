@@ -3,7 +3,12 @@
     <div class="mx-auto container w-full sm:w-1/2 p-3">
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <div class="flex flex-row items-center">
-          <CardStat />
+          <TodayStat />
+        </div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
+        <div class="flex flex-row items-center">
+          <TotalStat />
         </div>
       </div>
     </div>
@@ -21,16 +26,18 @@
 </template>
 
 <script>
-import CardStat from '@/components/CardStat'
-import TableStat from '@/components/TableStat'
+import TodayStat from '@/components/TodayStat'
+import TotalStat from '@/components/TotalStat'
 import LineChart from '@/components/LineChart/index'
+import TableStat from '@/components/TableStat'
 
 export default {
   name: 'Home',
   components: {
-    CardStat,
-    TableStat,
-    LineChart
+    TodayStat,
+    TotalStat,
+    LineChart,
+    TableStat
   }
 }
 </script>

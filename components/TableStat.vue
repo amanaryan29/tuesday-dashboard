@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="currentMonthAndWeek.isLoading">
+    <div v-if="currentMonthAndWeek.isLoading" class="text-gray-400 text-sm uppercase">
       Loading ...
     </div>
-    <div v-else-if="currentMonthAndWeek.isError">
+    <div v-else-if="currentMonthAndWeek.isError" class="text-gray-400 text-sm uppercase">
       Error in fetching the data
     </div>
     <table v-else class="table-auto mx-auto container">
