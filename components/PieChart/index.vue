@@ -28,10 +28,10 @@ export default {
           labels: ['Approved', 'Rejected'],
           datasets: [
             {
-              hoverBackgroundColor: ['#B8E994', '#FF5E57'],
+              hoverBackgroundColor: ['#5BC638', '#FF3333'],
               hoverBorderWidth: 5,
               label: 'Total Comments so far',
-              backgroundColor: ['#78E08F', '#FF3F34'],
+              backgroundColor: ['#69AC53', '#CC3333'],
               data: []
             }
           ]

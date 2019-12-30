@@ -29,17 +29,17 @@ export default {
           datasets: [
             {
               label: 'Approved',
-              borderColor: '#41b883',
+              borderColor: '#5BC638',
               data: []
             },
             {
               label: 'Rejected',
-              borderColor: 'red',
+              borderColor: '#FF3333',
               data: []
             },
             {
               label: 'Total',
-              borderColor: '#FFA801',
+              borderColor: '#0071C1',
               data: []
             }
           ]
