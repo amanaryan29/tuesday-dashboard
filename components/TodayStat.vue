@@ -19,8 +19,8 @@
           </div>
         </div>
         <div class="flex">
-          <div class="w-full sm:w-1/2 border border-gray-800 rounded m-1 p-1">
-            <h5 class="font-bold text-3xl text-gray-600 text-center">{{ todaysComment.rejected }}</h5>
+          <div @click="openAdmin()" class="w-full sm:w-1/2 border border-gray-800 rounded m-1 p-1 cursor-pointer hover:bg-blue-900">
+            <h5 class="font-bold text-3xl text-gray-600 text-center">{{ todaysComment.pending }}</h5>
             <h3 class="font-droid uppercase text-xs text-gray-400 text-center p-1">Pending</h3>
           </div>
           <div class="w-full sm:w-1/2 border border-gray-800 rounded m-1 p-1">
@@ -44,6 +44,7 @@ export default {
         approved: null,
         rejected: null,
         total: null,
+        pending: null,
         isLoading: false,
         isError: false
       }
@@ -61,11 +62,17 @@ export default {
         this.todaysComment.approved = todaysComment.approved
         this.todaysComment.rejected = todaysComment.rejected
         this.todaysComment.total = todaysComment.total
+
+        const todaysPendingComment = await api.get('/comments/pending/lastndays/0')
+        this.todaysComment.pending = todaysPendingComment.total_pending
       } catch (e) {
         this.todaysComment.isError = true
       } finally {
         this.todaysComment.isLoading = false
       }
+    },
+    openAdmin () {
+      window.open('https://tuesday.scroll.in', '_blank')
     }
   }
 }
