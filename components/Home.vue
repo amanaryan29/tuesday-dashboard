@@ -17,7 +17,7 @@
       <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-3">
         <div class="flex flex-row items-center">
           <div class="flex-1 text-right md:text-center">
-            <TableStat />
+            <RejectionReason />
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
 import TodayStat from '@/components/TodayStat'
 import TotalStat from '@/components/TotalStat'
 import LineChart from '@/components/LineChart/index'
-import TableStat from '@/components/TableStat'
+import RejectionReason from '@/components/RejectionReason'
 
 export default {
   name: 'Home',
@@ -37,7 +37,7 @@ export default {
     TodayStat,
     TotalStat,
     LineChart,
-    TableStat
+    RejectionReason
   }
 }
 </script>
