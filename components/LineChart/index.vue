@@ -6,7 +6,28 @@
     <div v-else-if="lineChart.isError" class="text-gray-400 text-sm uppercase">
       Error in fetching the data
     </div>
-    <LineChart v-else :height="300" :data="lineChart.data" :options="{ maintainAspectRatio: false, responsive: true }" />
+    <LineChart
+      v-else
+      :height="300"
+      :data="lineChart.data"
+      :options="{
+        maintainAspectRatio: false,
+        responsive: true,
+        title:{
+          display: true,
+          text: 'WEEKLY STATISTICS',
+          position: 'bottom',
+          fontSize: 13,
+          fontColor: '#CBD5E0',
+        },
+        legend: {
+          display: true,
+          labels: {
+            fontColor: '#718096'
+          }
+        }
+      }"
+    />
   </div>
 </template>
 
@@ -25,21 +46,28 @@ export default {
         isLoading: false,
         isError: false,
         data: {
-          labels: ['week-1', 'week-2', 'last-week', 'current-week'],
+          labels: [],
           datasets: [
             {
               label: 'Approved',
+              fontColor: '#718096',
               borderColor: '#5BC638',
+              pointBackgroundColor: 'white',
+              lineTension: 0,
               data: []
             },
             {
               label: 'Rejected',
               borderColor: '#FF3333',
+              pointBackgroundColor: 'white',
+              lineTension: 0,
               data: []
             },
             {
               label: 'Total',
               borderColor: '#0071C1',
+              pointBackgroundColor: 'white',
+              lineTension: 0,
               data: []
             }
           ]
@@ -55,8 +83,9 @@ export default {
       this.lineChart.isLoading = true
       this.lineChart.isError = false
       try {
-        const weekly = await api.get('/comments/count/weekly/lastnweeks/4')
-        for (let i = 4; i > 0; i--) {
+        const weekly = await api.get('/comments/count/weekly/lastnweeks/12')
+        for (let i = 12; i > 0; i--) {
+          this.lineChart.data.labels.push(weekly[weekly.length - i][0])
           this.lineChart.data.datasets[0].data.push(weekly[weekly.length - i][1])
           this.lineChart.data.datasets[1].data.push(weekly[weekly.length - i][2])
           this.lineChart.data.datasets[2].data.push(weekly[weekly.length - i][3])
