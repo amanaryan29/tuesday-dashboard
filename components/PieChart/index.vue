@@ -6,7 +6,29 @@
     <div v-else-if="pieChart.isError" class="text-gray-400 text-sm uppercase">
       Error in fetching the data
     </div>
-    <pieChart v-else :height="250" :data="pieChart.data" :options="{ maintainAspectRatio: false, responsive: true }" />
+    <pieChart
+      v-else
+      :height="250"
+      :data="pieChart.data"
+      :options="{
+        maintainAspectRatio: false,
+        responsive: true,
+        title: {
+          display: true,
+          text: 'TOTAL COMMENTS',
+          position: 'bottom',
+          fontSize: 13,
+          fontColor: '#CBD5E0'
+        },
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: '#718096'
+          }
+        }
+      }"
+    />
   </div>
 </template>
 
@@ -29,7 +51,8 @@ export default {
           datasets: [
             {
               hoverBackgroundColor: ['#5BC638', '#FF3333'],
-              hoverBorderWidth: 5,
+              hoverBorderWidth: 3,
+              borderWidth: 0,
               label: 'Total Comments so far',
               backgroundColor: ['#69AC53', '#CC3333'],
               data: []

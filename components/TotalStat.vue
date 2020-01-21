@@ -10,7 +10,7 @@
       <div class="w-full sm:w-1/2 p-1">
         <h5
           class="font-droid font-bold uppercase text-sm text-gray-400 text-left border border-gray-800 rounded p-2 mb-2"
-        >Total Pending Comments:
+        >Total Pending:
           <span class="font-droid font-bold text-xl text-gray-600">{{ datasets.totalPendingComments }}</span>
         </h5>
       </div>
@@ -24,9 +24,6 @@
     </div>
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 mb-2">
       <PieChart />
-      <h3 class="font-droid font-bold uppercase text-sm text-gray-400 text-center p-1 mb-1">
-        Total Comments so far
-      </h3>
     </div>
   </div>
 </template>
