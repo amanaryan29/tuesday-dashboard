@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "chart.js": "^2.9.3",
     "gate-keeper": "github:amanaryan29/gate-keeper#master",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
